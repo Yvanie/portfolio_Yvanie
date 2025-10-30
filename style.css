@@ -557,17 +557,18 @@ footer {
 }
 
 @media (max-width: 992px) {
-  /* Show hamburger */
   .hamburger {
     display: flex;
     margin-right: 10%;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
   }
 
-  /* Hide nav links by default */
   .nav-links {
     position: fixed;
     top: 70px;
-    right: -100%;
+    right: -100%; /* hide by default */
     width: 70%;
     height: calc(100vh - 70px);
     background: #fff;
@@ -577,15 +578,13 @@ footer {
     box-shadow: -2px 0 10px rgba(0,0,0,0.1);
     transition: right 0.3s ease;
     z-index: 1000;
-    margin-right: 0; /* remove original right margin for mobile */
+    margin-right: 0;
   }
 
-  /* Slide in when active */
   .nav-links.active {
-    right: 0;
+    right: 0; /* slide in when active */
   }
 
-  /* Increase font size for mobile menu links */
   .nav-links a {
     font-size: 1.2rem;
   }
@@ -609,11 +608,18 @@ footer {
     grid-template-columns: 1fr 1fr;
     gap: 20px;
   }
-  skills-content {
+  .skills {
+  background-color: #fff;
+  padding: 100px 0%;
+}
+  .skills-content {
     flex-direction: column;
     text-align: center;
   }
-
+.skills-details {
+  margin: 10px;
+ 
+}
   .skills-image img {
     width: 300px;
   }
@@ -627,6 +633,13 @@ footer {
   .contact-container {
     flex-direction: column;
   }
+  .contact-info p {
+  font-size: 1rem;
+}
+.contact-actions p {
+  font-size: 1rem;
+}
+
 }
 @media (max-width: 600px) {
   .about-stats {
