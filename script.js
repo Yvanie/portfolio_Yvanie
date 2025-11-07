@@ -7,32 +7,42 @@ hamburger.addEventListener("click", () => {
   navLinks.classList.toggle("active");
 });
 const typedText = document.querySelector(".typing-text");
-const words = ["Front-End Developer", "Web Designer"];
-let wordIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
+  const words = ["Front-End Developer", "Web Designer"];
+  let wordIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  const typingSpeed = 120;
+  const erasingSpeed = 60;
+  const delayBetweenWords = 1500;
 
-function typeEffect() {
-  const current = words[wordIndex];
-  const displayed = isDeleting
-    ? current.substring(0, charIndex--)
-    : current.substring(0, charIndex++);
+  function typeEffect() {
+    const currentWord = words[wordIndex];
+    
+    if (!isDeleting && charIndex < currentWord.length) {
+      typedText.textContent = currentWord.substring(0, charIndex + 1);
+      charIndex++;
+      setTimeout(typeEffect, typingSpeed);
 
-  typedText.textContent = displayed;
+    } else if (!isDeleting && charIndex === currentWord.length) {
+      // pause before deleting
+      isDeleting = true;
+      setTimeout(typeEffect, delayBetweenWords);
 
-  if (!isDeleting && charIndex === current.length) {
-    isDeleting = true;
-    setTimeout(typeEffect, 1500);
-  } else if (isDeleting && charIndex === 0) {
-    isDeleting = false;
-    wordIndex = (wordIndex + 1) % words.length;
-    setTimeout(typeEffect, 500);
-  } else {
-    setTimeout(typeEffect, isDeleting ? 50 : 100);
+    } else if (isDeleting && charIndex > 0) {
+      typedText.textContent = currentWord.substring(0, charIndex - 1);
+      charIndex--;
+      setTimeout(typeEffect, erasingSpeed);
+
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      wordIndex = (wordIndex + 1) % words.length;
+      setTimeout(typeEffect, 400);
+    }
   }
-}
 
-typeEffect();
+  document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(typeEffect, 500);
+  });
 
 document.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.querySelectorAll(".nav-links a");
