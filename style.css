@@ -55,7 +55,7 @@ body {
   list-style: none;
   display: flex;
   gap: 35px;
-  margin-right: 10%; /* move menu inward from right */
+  /*margin-right: 10%; /* move menu inward from right */
 }
 
 /* Links */
@@ -79,6 +79,129 @@ body {
   background: rgba(0,120,255,0.1);
   border-bottom: 2px solid #0078ff;
   font-weight: 600;
+}
+/* ======== DARK MODE STYLES ======== */
+
+/* Theme toggle button */
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.4rem;
+  color: #333;
+  transition: color 0.3s ease, transform 0.3s ease;
+  margin-right: 10%;
+}
+
+.theme-toggle:hover {
+  color: #0078ff;
+  transform: rotate(15deg);
+}
+
+/* Global dark mode */
+body.dark-mode {
+  background-color: #0f1115;
+  color: #f5f5f5;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Navbar */
+body.dark-mode .navbar {
+  background-color: #1a1a1a;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .logo {
+  color: #fff;
+}
+
+body.dark-mode .logo span {
+  color: #4ea1ff;
+}
+
+body.dark-mode .nav-links a {
+  color: #ddd;
+}
+
+body.dark-mode .nav-links a.active {
+  background: rgba(78, 161, 255, 0.2);
+  color: #4ea1ff;
+}
+
+/* Home Section */
+body.dark-mode #home {
+  background: #121417;
+  color: #f5f5f5;
+}
+
+/* About Section */
+body.dark-mode #about {
+  background: #181a1d;
+  color: #e0e0e0;
+}
+body.dark-mode #about .stat-box p {
+  color: #181a1d;
+}
+
+/* Stats Cards */
+body.dark-mode .about-stats {
+  background: #222;
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Skills Section */
+body.dark-mode #skills {
+  background: #16181b;
+  color: #fff;
+}
+body.dark-mode #skills .skill-category p {
+ color: #181a1d;
+}
+/* Projects Section */
+body.dark-mode #projects {
+  background: #1b1d20;
+}
+body.dark-mode #projects p {
+ color: #fff;
+}
+
+body.dark-mode .project-card {
+  background: #242529;
+  color: #ddd;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+}
+
+/* Contact Section */
+body.dark-mode #contact {
+  background: #1c1d22;
+  color: #f0f0f0;
+}
+
+body.dark-mode .contact-info,
+body.dark-mode .contact-actions {
+  background: #242529;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+}
+
+/* Buttons */
+body.dark-mode .btn.email {
+  background: #4ea1ff;
+}
+
+body.dark-mode .btn.whatsapp {
+  background: #22c463;
+}
+
+body.dark-mode .btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* Footer */
+body.dark-mode footer {
+  background: #111;
+  color: #ccc;
+  border-top: 1px solid #333;
 }
 
 /* ===== SECTIONS ===== */
